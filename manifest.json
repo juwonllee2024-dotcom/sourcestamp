@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "SourceStamp — portable source receipts",
+  "version": "0.1.0",
+  "description": "Turn selected web text into a local, verifiable source receipt before you lose the context.",
+  "action": {
+    "default_title": "Create a SourceStamp receipt",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ]
+}

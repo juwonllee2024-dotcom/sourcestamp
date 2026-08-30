@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SourceStamp</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="shell">
+      <header class="hero">
+        <p class="eyebrow">LOCAL SOURCE RECEIPT</p>
+        <h1>Stamp the source<br><span>before it disappears.</span></h1>
+        <p class="lede">Turn a selected web sentence into a portable quote with its page, time, and SHA-256 fingerprint.</p>
+      </header>
+
+      <section class="editor" aria-labelledby="editor-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">CAPTURE</p>
+            <h2 id="editor-title">What should travel with the quote?</h2>
+          </div>
+          <button id="refresh" class="quiet-button" type="button">Refresh selection</button>
+        </div>
+
+        <label class="field">
+          <span>Selected text</span>
+          <textarea id="quote" rows="5" placeholder="Select text on the page, or paste it here."></textarea>
+        </label>
+
+        <div class="two-columns">
+          <label class="field">
+            <span>Page title</span>
+            <input id="title" type="text" placeholder="Untitled page">
+          </label>
+          <label class="field">
+            <span>Source URL</span>
+            <input id="url" type="url" placeholder="https://example.com/...">
+          </label>
+        </div>
+
+        <p id="status" class="status" role="status" aria-live="polite">Reading the active tab…</p>
+      </section>
+
+      <section class="receipt-card" aria-labelledby="preview-title">
+        <div class="card-topline">
+          <p class="eyebrow">PREVIEW</p>
+          <span id="badge" class="badge">Waiting for a quote</span>
+        </div>
+        <h2 id="preview-title">Your source receipt</h2>
+        <blockquote id="preview-quote">Select a sentence to see the receipt.</blockquote>
+        <p class="source-line"><span>Source</span> <a id="preview-source" href="#" target="_blank" rel="noreferrer noopener">—</a></p>
+        <dl class="metadata">
+          <div><dt>Captured</dt><dd id="preview-time">—</dd></div>
+          <div><dt>Fingerprint</dt><dd id="preview-fingerprint">—</dd></div>
+        </dl>
+      </section>
+
+      <section class="actions" aria-label="Export receipt">
+        <button id="copy-markdown" class="primary-button" type="button" disabled>Copy Markdown</button>
+        <button id="copy-html" class="secondary-button" type="button" disabled>Copy HTML</button>
+        <button id="download" class="secondary-button" type="button" disabled>Download .md</button>
+      </section>
+
+      <footer class="footer">
+        <span>Nothing saved.</span>
+        <span>Nothing uploaded.</span>
+        <span>You choose every export.</span>
+      </footer>
+    </main>
+    <script type="module" src="src/popup.mjs"></script>
+  </body>
+</html>
